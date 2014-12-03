@@ -1,23 +1,24 @@
 #!/bin/bash
 
-for i in {1..500}
-do
-    echo "Iteration $i"
-    ./knapsack_omp_memo input-64.txt 35 14
-done
+#BSUB -q debug 
+#BSUB -n 16
+#BSUB -R "span[ptile=16]"
+#BSUB -oo knapsack.out
+#BSUB -eo knapsack.err
+#BSUB -J knapsack 
+#BSUB -x
+#BSUB -W 00:30
 
-#for i in {40..44}
-#do
-#    for j in {1..5}
-#    do
-#        if test $i -le 41
-#        then
-#        ./knapsack_omp_memo input-64.txt $i 14
-#        elif test $i -eq 42
-#        then
-#        ./knapsack_omp_memo input-64.txt $i 15
-#        else
-#        ./knapsack_omp_memo input-64.txt $i 16
-#        fi
-#    done
-#done    
+rm outputs_yield outputs_no_yield
+
+#for i in {46..50}
+for i in 50
+do
+    echo "Problem size $i" >> outputs_yield
+    echo "Problem size $i" >> outputs_no_yield
+    for j in {1..5}
+    do
+        NX_ARGS="--summary" ./knapsack_omp_memo_yield input-64.txt $i 20 2>> outputs_yield 1>> outputs_yield
+        NX_ARGS="--summary" ./knapsack_omp_memo_no_yield input-64.txt $i 20 2>> outputs_no_yield 1>> outputs_no_yield
+    done
+done    

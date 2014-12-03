@@ -5,7 +5,7 @@
 int ori_n;
 int final = 0;
 
-#pragma omp task memo(value+1, coins_size+1, value, coins_size) out(*res)
+#pragma omp task memo(value+1, coins_size+1, value, coins_size) out(*res) final(coins_size < ori_n - final)
 void count(int * coins, int coins_size, int value, int *res) {
     if (value == 0) {
         *res = 1;

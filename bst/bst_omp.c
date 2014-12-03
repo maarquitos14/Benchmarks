@@ -4,7 +4,7 @@
 #include <string.h>
 
 int ori_n;
-int final;
+int final = 0;
 
 #pragma omp task out(*res) final(n < ori_n - final) 
 void bst(int n, long int * res) {
@@ -28,13 +28,15 @@ void bst(int n, long int * res) {
 
 int main (int argc, char *argv[]) {
     int n;
-    if(argc!=3) {
+    if(argc<2) {
         printf("Usage: %s n final\n", argv[0]);
         exit(0);
     }
     n = atoi(argv[1]);
     ori_n = n;
-    final = atoi(argv[2]);
+    if(argc==3) {
+        final = atoi(argv[2]);
+    }
     long int res = 0;
     double start = omp_get_wtime();
     bst(n, &res);

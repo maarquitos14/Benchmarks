@@ -6,30 +6,8 @@
 int ori_n;
 int final = 0;
 
-void lis_smaller_serial(int * a, int n, int x, int * res) {
-    if (n == 0) {
-        *res = 0;
-        return;
-    }
-    int aux1 = 0, aux2 = 0;
-    lis_smaller_serial(a, n-1, x, &aux1);
-    if(x == -1) {
-        lis_smaller_serial(a, n-1, n-1, &aux2);
-        aux2++;
-    }
-    else if(a[n-1] < a[x]) {
-        lis_smaller_serial(a, n-1, n-1, &aux2);
-        aux2++;
-    }
-    *res = aux1 > aux2 ? aux1 : aux2;
-}
-
-#pragma omp task out(*res) memo(n+1, n+1, n, x+1) //final(n < ori_n - final)
+#pragma omp task out(*res) memo(n+1, n+1, n, x+1) final(n < ori_n - final)
 void lis_smaller(int * a, int n, int x, int * res) {
-    if(n < ori_n - final) {
-        lis_smaller_serial(a, n, x, res);
-        return;
-    }
     if (n == 0) {
         *res = 0;
         return;

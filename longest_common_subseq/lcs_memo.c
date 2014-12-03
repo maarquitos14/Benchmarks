@@ -41,21 +41,21 @@ void lcs( char *X, char *Y, int m, int n, int * res ) {
 }
 
 int main( int argc, char * argv[] ) {
-    if( argc != 3 ) {
+    if( argc < 3 ) {
         printf( "usage: %s seq1 seq2\n", argv[0] );
         exit(0);
     }
     char * x = argv[1];
     char * y = argv[2];
+    int ori_m = strlen(x);
+    int ori_n = strlen(y);
     dim1 = strlen(y)+1;
     memo = calloc((strlen(x)+1)*dim1, sizeof(int));
     memset(memo, -1, (strlen(x)+1)*dim1*sizeof(int));
     int res = 0;
     double start = omp_get_wtime();
-    lcs(x, y, strlen(x), strlen(y), &res);
+    lcs(x, y, ori_m, ori_n, &res);
     double end = omp_get_wtime();
     printf( "Length of LCS %d, time %f\n", res, end-start );
     return 0;
 }
-
-

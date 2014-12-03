@@ -5,7 +5,7 @@
 int ori_n;
 int final = 0;
 
-#pragma omp task memo(n+1,n) out(*res) final(n < ori_n - final)
+#pragma omp task memo(n+1,n) out(*res) final(n < ori_n - final) label(fib1)
 void fib(int n, int *res) {
 	if(n<2) *res = n;
 	else
@@ -13,6 +13,20 @@ void fib(int n, int *res) {
 		int res1, res2;
 		fib(n-1, &res1);
 		fib(n-2, &res2);
+		#pragma omp taskwait
+		*res = res1 + res2;
+	}
+}
+
+
+#pragma omp task memo(n+1,n) out(*res) final(n < ori_n - final) label(fib2)
+void fib2(int n, int *res) {
+	if(n<2) *res = n;
+	else
+	{
+		int res1, res2;
+		fib2(n-1, &res1);
+		fib2(n-2, &res2);
 		#pragma omp taskwait
 		*res = res1 + res2;
 	}
@@ -28,10 +42,12 @@ int main(int argc, char *argv[]) {
         final = atoi(argv[2]);
     }
 	ori_n = n;
-	int res;
+	int res, res2;
 	double start = omp_get_wtime();
 	fib(n, &res);
+    //fib2(n, &res2);
 	#pragma omp taskwait
 	double end = omp_get_wtime();
 	printf("fib(%d): %d, time, %f\n",n, res, end - start);
+	//printf("fib2(%d): %d, time, %f\n",n, res2, end - start);
 }

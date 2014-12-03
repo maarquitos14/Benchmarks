@@ -37,7 +37,6 @@ void eggDrop(int n, int k, int *res) {
     *res = min+1;
 }
 
-/* Driver program to test to pront printDups*/
 int main(int argc, char * argv[]) {
     if(argc != 3) {
         printf("usage: %s eggs floors\n", argv[0]);
