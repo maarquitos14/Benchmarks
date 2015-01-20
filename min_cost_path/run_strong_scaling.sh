@@ -7,26 +7,20 @@
 #BSUB -eo mcp_strong_scaling.err
 #BSUB -J mcp_strong_scaling 
 #BSUB -x
-#BSUB -W 00:10
+#BSUB -W 00:30
 
-echo "mcp_omp"
-
-for i in 1 2 4 8 16 
-do
-	echo "Number of threads: $i"
-	for j in {1..5}
-	do
-		NX_ARGS="--summary --smp-workers=$i" ./mcp_omp input-50x50.txt 16 16 15 11 4
-	done
-done
-
-echo "mcp_omp_memo"
+#rm outputs_omp_memo outputs_omp
+rm outputs_omp_memo
 
 for i in 1 2 4 8 16 
 do
-	echo "Number of threads: $i"
-	for j in {1..5}
-	do
-		NX_ARGS="--summary --smp-workers=$i" ./mcp_omp_memo input-50x50.txt 16 16 15 11 5
+#    echo "Number of threads $i" >> outputs_omp
+    echo "Number of threads $i" >> outputs_omp_memo
+    for j in {1..5}
+    do
+        let aux=15-6
+        let size=15+1
+#        NX_ARGS="--smp-workers=$i" ./mcp_omp input-50x50.txt $size 12 15 11 5 2>> outputs_omp 1>> outputs_omp
+        NX_ARGS="--smp-workers=$i" ./mcp_omp_memo input-50x50.txt $size 12 15 11 $aux 2>> outputs_omp_memo 1>> outputs_omp_memo
 	done
 done

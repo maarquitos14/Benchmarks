@@ -1,4 +1,4 @@
-all: lis lis_memo lis_omp lis_omp_memo lis_omp_inst lis_omp_memo_inst
+all: lis lis_memo lis_omp lis_omp_memo
 
 lis: lis.c
 	mcc lis.c -o lis

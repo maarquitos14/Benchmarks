@@ -1,4 +1,4 @@
-all: mcp mcp_memo mcp_omp mcp_omp_memo mcp_omp_inst mcp_omp_memo_inst
+all: mcp mcp_memo mcp_omp mcp_omp_memo
 
 mcp: mcp.c
 	mcc mcp.c -o mcp

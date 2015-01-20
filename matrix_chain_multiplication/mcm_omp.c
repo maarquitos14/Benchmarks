@@ -6,7 +6,7 @@
 int final = 0;
 int ori_i, ori_j;
 
-#pragma omp task out(*res) final(i < ori_i - final || j < ori_j - final)
+#pragma omp task out(*res) final(i > ori_i + final || j < ori_j - final)
 void MatrixChainOrder(int * p, int i, int j, int * res) {
     if(i == j) {
         *res = 0;

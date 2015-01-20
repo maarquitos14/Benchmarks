@@ -9,7 +9,7 @@ typedef struct {
 int n;
 int final = 0;
 
-#pragma omp task out(*sol) final(idx < n-final) 
+#pragma omp task out(*sol) final(idx < n-final || weight < weight/5) 
 void optimal(int weight, int idx, int *sol, const item_t item[]) {
 	int v1, v2;
 

@@ -1,0 +1,55 @@
+Number of threads 1
+Positions used: 28, bytes used (approx): 168
+26244, time 0.004993
+Positions used: 28, bytes used (approx): 168
+26244, time 0.004846
+Positions used: 28, bytes used (approx): 168
+26244, time 0.005028
+Positions used: 28, bytes used (approx): 168
+26244, time 0.004997
+Positions used: 28, bytes used (approx): 168
+26244, time 0.004955
+Number of threads 2
+Positions used: 29, bytes used (approx): 174
+39366, time 0.004113
+Positions used: 29, bytes used (approx): 174
+39366, time 0.004089
+Positions used: 29, bytes used (approx): 174
+39366, time 0.003985
+Positions used: 29, bytes used (approx): 174
+39366, time 0.004130
+Positions used: 29, bytes used (approx): 174
+39366, time 0.004118
+Number of threads 4
+Positions used: 30, bytes used (approx): 180
+59049, time 0.003097
+Positions used: 30, bytes used (approx): 180
+59049, time 0.003111
+Positions used: 30, bytes used (approx): 180
+59049, time 0.003212
+Positions used: 30, bytes used (approx): 180
+59049, time 0.003020
+Positions used: 30, bytes used (approx): 180
+59049, time 0.002991
+Number of threads 8
+Positions used: 31, bytes used (approx): 186
+78732, time 0.002980
+Positions used: 31, bytes used (approx): 186
+78732, time 0.003153
+Positions used: 31, bytes used (approx): 186
+78732, time 0.003075
+Positions used: 31, bytes used (approx): 186
+78732, time 0.003321
+Positions used: 31, bytes used (approx): 186
+78732, time 0.003050
+Number of threads 16
+Positions used: 32, bytes used (approx): 192
+118098, time 0.005974
+Positions used: 32, bytes used (approx): 192
+118098, time 0.006404
+Positions used: 32, bytes used (approx): 192
+118098, time 0.005247
+Positions used: 32, bytes used (approx): 192
+118098, time 0.005016
+Positions used: 32, bytes used (approx): 192
+118098, time 0.004976

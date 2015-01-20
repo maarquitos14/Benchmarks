@@ -1,4 +1,4 @@
-all: levenshtein_distance levenshtein_distance_memo levenshtein_distance_omp levenshtein_distance_omp_memo levenshtein_distance_omp_inst levenshtein_distance_omp_memo_inst
+all: levenshtein_distance levenshtein_distance_memo levenshtein_distance_omp levenshtein_distance_omp_memo
 
 levenshtein_distance: levenshtein_distance.c
 	mcc levenshtein_distance.c -o levenshtein_distance

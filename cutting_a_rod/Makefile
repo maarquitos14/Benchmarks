@@ -1,4 +1,4 @@
-all: car car_memo car_omp car_omp_memo car_omp_inst car_omp_memo_inst
+all: car car_memo car_omp car_omp_memo
 
 car: car.c
 	mcc car.c -o car

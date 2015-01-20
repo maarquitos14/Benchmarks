@@ -9,19 +9,17 @@
 #BSUB -x
 #BSUB -W 00:30
 
-rm outputs_serial outputs_memo outputs_omp_memo outputs_omp
+#rm outputs_omp_memo outputs_omp
+rm outputs_omp_memo
 
 for i in 1 2 4 8 16 
 do
-	echo "Number of threads: $i"
-	for j in {1..5}
-	do
-        if test $i -eq 1
-        then
-            ./mcm input-100.txt 22 2>> outputs_serial 1>> outputs_serial
-            ./mcm_memo input-100.txt 22 2>> outputs_memo 1>> outputs_memo
-        fi
-        NX_ARGS="--summary --smp-workers=$i" ./mcm_omp_memo input-100.txt 22 5 2>> outputs_omp_memo 1>> outputs_omp_memo
-        NX_ARGS="--summary --smp-workers=$i" ./mcm_omp input-100.txt 22 3 2>> outputs_omp 1>> outputs_omp
+#    echo "Number of threads $i" >> outputs_omp
+    echo "Number of threads $i" >> outputs_omp_memo
+    for j in {1..5}
+    do
+        let aux=22-14
+#        NX_ARGS="--smp-workers=$i" ./mcm_omp input-1000.txt 22 3 2>> outputs_omp 1>> outputs_omp
+        NX_ARGS="--smp-workers=$i" ./mcm_omp_memo input-1000.txt 22 $aux 2>> outputs_omp_memo 1>> outputs_omp_memo
 	done
 done

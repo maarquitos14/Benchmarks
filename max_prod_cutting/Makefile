@@ -1,4 +1,4 @@
-all: mpc mpc_memo mpc_omp mpc_omp_memo mpc_omp_inst mpc_omp_memo_inst
+all: mpc mpc_memo mpc_omp mpc_omp_memo
 
 mpc: mpc.c
 	mcc mpc.c -o mpc

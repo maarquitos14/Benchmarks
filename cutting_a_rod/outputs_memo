@@ -1,0 +1,30 @@
+Number of threads 1
+93, time 0.000004
+93, time 0.000004
+93, time 0.000004
+93, time 0.000004
+93, time 0.000004
+Number of threads 2
+95, time 0.000004
+95, time 0.000004
+95, time 0.000004
+95, time 0.000004
+95, time 0.000004
+Number of threads 4
+101, time 0.000005
+101, time 0.000005
+101, time 0.000005
+101, time 0.000005
+101, time 0.000005
+Number of threads 8
+103, time 0.000005
+103, time 0.000005
+103, time 0.000005
+103, time 0.000005
+103, time 0.000005
+Number of threads 16
+106, time 0.000005
+106, time 0.000005
+106, time 0.000005
+106, time 0.000005
+106, time 0.000005

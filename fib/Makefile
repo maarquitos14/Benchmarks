@@ -1,4 +1,4 @@
-all: fib fib_memo fib_omp fib_omp_memo fib_omp_inst fib_omp_memo_inst
+all: fib fib_memo fib_omp fib_omp_memo 
 
 fib: fib.c
 	mcc fib.c -o fib

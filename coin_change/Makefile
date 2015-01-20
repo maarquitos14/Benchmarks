@@ -1,4 +1,4 @@
-all: coin_change coin_change_memo coin_change_omp coin_change_omp_memo coin_change_omp_inst coin_change_omp_memo_inst
+all: coin_change coin_change_memo coin_change_omp coin_change_omp_memo
 
 coin_change: coin_change.c
 	mcc coin_change.c -o coin_change

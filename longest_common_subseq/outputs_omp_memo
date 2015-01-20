@@ -1,0 +1,55 @@
+Number of threads 1
+Positions used: 203, bytes used (approx): 1218
+Length of LCS 3, time 0.006062
+Positions used: 203, bytes used (approx): 1218
+Length of LCS 3, time 0.005897
+Positions used: 203, bytes used (approx): 1218
+Length of LCS 3, time 0.005975
+Positions used: 203, bytes used (approx): 1218
+Length of LCS 3, time 0.006038
+Positions used: 203, bytes used (approx): 1218
+Length of LCS 3, time 0.005837
+Number of threads 2
+Positions used: 263, bytes used (approx): 1578
+Length of LCS 4, time 0.006217
+Positions used: 263, bytes used (approx): 1578
+Length of LCS 4, time 0.006148
+Positions used: 263, bytes used (approx): 1578
+Length of LCS 4, time 0.006204
+Positions used: 263, bytes used (approx): 1578
+Length of LCS 4, time 0.006362
+Positions used: 263, bytes used (approx): 1578
+Length of LCS 4, time 0.006228
+Number of threads 4
+Positions used: 349, bytes used (approx): 2094
+Length of LCS 2, time 0.006224
+Positions used: 349, bytes used (approx): 2094
+Length of LCS 2, time 0.006886
+Positions used: 349, bytes used (approx): 2094
+Length of LCS 2, time 0.007152
+Positions used: 349, bytes used (approx): 2094
+Length of LCS 2, time 0.007076
+Positions used: 349, bytes used (approx): 2094
+Length of LCS 2, time 0.006809
+Number of threads 8
+Positions used: 275, bytes used (approx): 1650
+Length of LCS 3, time 0.006901
+Positions used: 275, bytes used (approx): 1650
+Length of LCS 3, time 0.006850
+Positions used: 275, bytes used (approx): 1650
+Length of LCS 3, time 0.006625
+Positions used: 275, bytes used (approx): 1650
+Length of LCS 3, time 0.007236
+Positions used: 275, bytes used (approx): 1650
+Length of LCS 3, time 0.006834
+Number of threads 16
+Positions used: 251, bytes used (approx): 1506
+Length of LCS 2, time 0.012098
+Positions used: 251, bytes used (approx): 1506
+Length of LCS 2, time 0.009586
+Positions used: 251, bytes used (approx): 1506
+Length of LCS 2, time 0.009557
+Positions used: 251, bytes used (approx): 1506
+Length of LCS 2, time 0.010760
+Positions used: 251, bytes used (approx): 1506
+Length of LCS 2, time 0.010491

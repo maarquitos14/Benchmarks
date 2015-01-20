@@ -1,4 +1,4 @@
-all: edp edp_memo edp_omp edp_omp_memo edp_omp_inst edp_omp_memo_inst
+all: edp edp_memo edp_omp edp_omp_memo
 
 edp: edp.c
 	mcc edp.c -o edp

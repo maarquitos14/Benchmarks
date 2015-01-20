@@ -9,19 +9,17 @@
 #BSUB -x
 #BSUB -W 00:30
 
-rm outputs_serial outputs_memo outputs_omp_memo outputs_omp
+#rm outputs_omp_memo outputs_omp
+rm outputs_omp_memo
 
 for i in 1 2 4 8 16 
 do
-	echo "Number of threads: $i"
-	for j in {1..5}
-	do
-        if test $i -eq 1
-        then
-            ./lcs abcdefghijklmnopqr zyxwvutsrqponmlkji 2>> outputs_serial 1>> outputs_serial
-            ./lcs_memo abcdefghijklmnopqr zyxwvutsrqponmlkji 2>> outputs_memo 1>> outputs_memo
-        fi
-		NX_ARGS="--summary --smp-workers=$i" ./lcs_omp_memo abcdefghijklmnopqr zyxwvutsrqponmlkji 11 2>> outputs_omp_memo 1>> outputs_omp_memo
-		NX_ARGS="--summary --smp-workers=$i" ./lcs_omp abcdefghijklmnopqr zyxwvutsrqponmlkji 5 2>> outputs_omp 1>> outputs_omp
+#    echo "Number of threads $i" >> outputs_omp
+    echo "Number of threads $i" >> outputs_omp_memo
+    for j in {1..5}
+    do
+        let aux=18-8
+#        NX_ARGS="--smp-workers=$i" ./lcs_omp input-18.txt 5 2>> outputs_omp 1>> outputs_omp
+        NX_ARGS="--smp-workers=$i" ./lcs_omp_memo input-18.txt $aux 2>> outputs_omp_memo 1>> outputs_omp_memo
 	done
 done

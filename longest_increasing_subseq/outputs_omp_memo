@@ -1,0 +1,55 @@
+Number of threads 1
+Positions used: 2278, bytes used (approx): 13668
+Length of LIS is 10, time 0.319582
+Positions used: 2278, bytes used (approx): 13668
+Length of LIS is 10, time 0.318922
+Positions used: 2278, bytes used (approx): 13668
+Length of LIS is 10, time 0.318340
+Positions used: 2278, bytes used (approx): 13668
+Length of LIS is 10, time 0.319460
+Positions used: 2278, bytes used (approx): 13668
+Length of LIS is 10, time 0.319031
+Number of threads 2
+Positions used: 3403, bytes used (approx): 20418
+Length of LIS is 10, time 0.236114
+Positions used: 3403, bytes used (approx): 20418
+Length of LIS is 10, time 0.237316
+Positions used: 3403, bytes used (approx): 20418
+Length of LIS is 10, time 0.236882
+Positions used: 3403, bytes used (approx): 20418
+Length of LIS is 10, time 0.233709
+Positions used: 3403, bytes used (approx): 20418
+Length of LIS is 10, time 0.239917
+Number of threads 4
+Positions used: 4278, bytes used (approx): 25668
+Length of LIS is 10, time 0.178717
+Positions used: 4278, bytes used (approx): 25668
+Length of LIS is 10, time 0.179305
+Positions used: 4278, bytes used (approx): 25668
+Length of LIS is 10, time 0.183893
+Positions used: 4278, bytes used (approx): 25668
+Length of LIS is 10, time 0.182392
+Positions used: 4278, bytes used (approx): 25668
+Length of LIS is 10, time 0.183239
+Number of threads 8
+Positions used: 8128, bytes used (approx): 48768
+Length of LIS is 10, time 0.193701
+Positions used: 8128, bytes used (approx): 48768
+Length of LIS is 10, time 0.189029
+Positions used: 8128, bytes used (approx): 48768
+Length of LIS is 10, time 0.193589
+Positions used: 8128, bytes used (approx): 48768
+Length of LIS is 10, time 0.189775
+Positions used: 8128, bytes used (approx): 48768
+Length of LIS is 10, time 0.189260
+Number of threads 16
+Positions used: 13203, bytes used (approx): 79218
+Length of LIS is 10, time 0.346593
+Positions used: 13203, bytes used (approx): 79218
+Length of LIS is 10, time 0.336791
+Positions used: 13203, bytes used (approx): 79218
+Length of LIS is 10, time 0.339192
+Positions used: 13203, bytes used (approx): 79218
+Length of LIS is 10, time 0.340128
+Positions used: 13203, bytes used (approx): 79218
+Length of LIS is 10, time 0.342414

@@ -40,15 +40,21 @@ void levenshteinDistance( char * s, int len_s, char * t, int len_t, int * res ) 
 }
 
 int main( int argc, char * argv[] ) {
-    if( argc != 3 ) {
-        printf( "usage: %s string1 string2\n", argv[0] );
+    if( argc != 2)  {
+        printf( "usage: %s filename\n", argv[0] );
         exit(0);
     }
-    char * s = argv[1];
-    char * t = argv[2];
+
+    const char *filename = argv[1];
+	FILE *f = fopen(filename, "r");
+    char s[1000];
+    char t[1000];
+    fscanf(f, "%s", &s); 
+    fscanf(f, "%s", &t); 
     int res = 0;
     double start = omp_get_wtime();
     levenshteinDistance( s, strlen(s), t, strlen(t), &res );
     double end = omp_get_wtime();
     printf("Levenshtein distance %d, time %f\n", res, end-start);
+    fclose(f);
 }

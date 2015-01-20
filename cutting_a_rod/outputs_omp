@@ -1,0 +1,30 @@
+Number of threads 1
+93, time 4.980408
+93, time 5.039902
+93, time 5.017119
+93, time 5.022585
+93, time 4.975880
+Number of threads 2
+95, time 5.041663
+95, time 4.978857
+95, time 5.029483
+95, time 5.307454
+95, time 4.989968
+Number of threads 4
+101, time 5.577405
+101, time 5.178816
+101, time 5.169863
+101, time 5.181220
+101, time 5.144024
+Number of threads 8
+103, time 5.521793
+103, time 5.471870
+103, time 5.522791
+103, time 5.523402
+103, time 5.474582
+Number of threads 16
+106, time 5.585142
+106, time 5.565162
+106, time 5.610849
+106, time 5.520590
+106, time 5.581490

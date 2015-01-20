@@ -1,4 +1,4 @@
-all: lcs lcs_memo lcs_omp lcs_omp_memo lcs_omp_inst lcs_omp_memo_inst
+all: lcs lcs_memo lcs_omp lcs_omp_memo
 
 lcs: lcs.c
 	mcc lcs.c -o lcs

@@ -5,6 +5,7 @@
  
 int *memo;
 int capacity = 400;
+//int capacity = 40;
 
 typedef struct {
 	int weight, value;

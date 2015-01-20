@@ -35,16 +35,21 @@ void lcs( char *X, char *Y, int m, int n, int * res ) {
 }
 
 int main( int argc, char * argv[] ) {
-    if( argc < 3 ) {
-        printf( "usage: %s seq1 seq2\n", argv[0] );
+    if( argc < 2)  {
+        printf( "usage: %s filename\n", argv[0] );
         exit(0);
     }
-    char * x = argv[1];
-    char * y = argv[2];
+
+    const char *filename = argv[1];
+	FILE *f = fopen(filename, "r");
+    char x[1000];
+    char y[1000];
+    fscanf(f, "%s", &x); 
+    fscanf(f, "%s", &y); 
     ori_m = strlen(x);
     ori_n = strlen(y);
-    if( argc == 4 ) {
-        final = atoi(argv[3]);
+    if( argc == 3 ) {
+        final = atoi(argv[2]);
     }
     int res = 0;
     double start = omp_get_wtime();

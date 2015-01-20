@@ -6,7 +6,7 @@
 int ori_n;
 int final = 0;
 
-#pragma omp task out(*res) final(n < ori_n - final)
+#pragma omp task out(*res) final(n < ori_n - final) 
 void lis_smaller(int * a, int n, int x, int * res) {
     if (n == 0) {
         *res = 0;

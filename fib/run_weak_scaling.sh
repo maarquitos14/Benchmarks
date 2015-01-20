@@ -7,54 +7,41 @@
 #BSUB -eo fib_weak_scaling.err
 #BSUB -J fib_weak_scaling 
 #BSUB -x
-#BSUB -W 00:25
+#BSUB -W 00:30
 
-echo "fib_omp"
-
-for i in 1 2 4 8 16 
-do
-	echo "Number of threads: $i"
-	for j in {1..5}
-	do
-		if test $i -eq 1
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./fib_omp 47 13
-		elif test $i -eq 2
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./fib_omp 48 14
-		elif test $i -eq 4
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./fib_omp 50 14
-		elif test $i -eq 8
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./fib_omp 51 14
-		else
-			NX_ARGS="--summary --smp-workers=$i" ./fib_omp 53 14
-		fi
-	done
-done
-
-echo "fib_omp_memo"
+rm outputs_serial outputs_memo outputs_omp_memo outputs_omp
 
 for i in 1 2 4 8 16 
 do
-	echo "Number of threads: $i"
-	for j in {1..5}
-	do
-		if test $i -eq 1
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./fib_omp_memo 47 14
-		elif test $i -eq 2
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./fib_omp_memo 49 15
-		elif test $i -eq 4
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./fib_omp_memo 50 16
-		elif test $i -eq 8
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./fib_omp_memo 51 16
-		else
-			NX_ARGS="--summary --smp-workers=$i" ./fib_omp_memo 53 18
-		fi
+    echo "Number of threads $i" >> outputs_serial
+    echo "Number of threads $i" >> outputs_memo
+    echo "Number of threads $i" >> outputs_omp
+    echo "Number of threads $i" >> outputs_omp_memo
+    for j in {1..5}
+    do
+        case $i in 
+            1)
+                let size=40
+                ;;
+            2)
+                let size=42
+                ;;
+            4)
+#                let size=43
+                let size=44
+                ;;
+            8)
+                let size=45
+                ;;
+            16)
+#                let size=47
+                let size=46
+                ;;
+        esac
+        let aux=$size-15
+        ./fib $size 2>> outputs_serial 1>> outputs_serial
+        ./fib_memo $size 2>> outputs_memo 1>> outputs_memo
+        NX_ARGS="--smp-workers=$i" ./fib_omp $size 10 2>> outputs_omp 1>> outputs_omp
+        NX_ARGS="--smp-workers=$i" ./fib_omp_memo $size $aux 2>> outputs_omp_memo 1>> outputs_omp_memo
 	done
 done

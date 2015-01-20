@@ -7,54 +7,39 @@
 #BSUB -eo coin_change_weak_scaling.err
 #BSUB -J coin_change_weak_scaling 
 #BSUB -x
-#BSUB -W 00:25
+#BSUB -W 00:30
 
-echo "coin_change_omp"
-
-for i in 1 2 4 8 16 
-do
-	echo "Number of threads: $i"
-	for j in {1..5}
-	do
-		if test $i -eq 1
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./coin_change_omp input-10.txt 10 155 1
-		elif test $i -eq 2
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./coin_change_omp input-10.txt 10 168 1
-		elif test $i -eq 4
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./coin_change_omp input-10.txt 10 182 1
-		elif test $i -eq 8
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./coin_change_omp input-10.txt 10 197 2
-		else
-			NX_ARGS="--summary --smp-workers=$i" ./coin_change_omp input-10.txt 10 213 2
-		fi
-	done
-done
-
-echo "coin_change_omp_memo"
+rm outputs_serial outputs_memo outputs_omp_memo outputs_omp
 
 for i in 1 2 4 8 16 
 do
-	echo "Number of threads: $i"
-	for j in {1..5}
-	do
-		if test $i -eq 1
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./coin_change_omp_memo input-10.txt 10 155 3
-		elif test $i -eq 2
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./coin_change_omp_memo input-10.txt 10 168 3
-		elif test $i -eq 4
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./coin_change_omp_memo input-10.txt 10 182 3
-		elif test $i -eq 8
-		then
-			NX_ARGS="--summary --smp-workers=$i" ./coin_change_omp_memo input-10.txt 10 197 3
-		else
-			NX_ARGS="--summary --smp-workers=$i" ./coin_change_omp_memo input-10.txt 10 213 3
-		fi
+    echo "Number of threads $i" >> outputs_serial
+    echo "Number of threads $i" >> outputs_memo
+    echo "Number of threads $i" >> outputs_omp
+    echo "Number of threads $i" >> outputs_omp_memo
+    for j in {1..5}
+    do
+        case $i in 
+            1)
+                let size=109
+                ;;
+            2)
+                let size=120
+                ;;
+            4)
+                let size=131
+                ;;
+            8)
+                let size=142
+                ;;
+            16)
+                let size=156
+                ;;
+        esac
+        let aux=13
+        ./coin_change input-10.txt 10 $size 2>> outputs_serial 1>> outputs_serial
+        ./coin_change_memo input-10.txt 10 $size 2>> outputs_memo 1>> outputs_memo
+        NX_ARGS="--smp-workers=$i" ./coin_change_omp input-10.txt 10 $size 3 2>> outputs_omp 1>> outputs_omp
+        NX_ARGS="--smp-workers=$i" ./coin_change_omp_memo input-10.txt 10 $size $aux 2>> outputs_omp_memo 1>> outputs_omp_memo
 	done
 done

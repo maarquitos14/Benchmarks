@@ -1,0 +1,30 @@
+Number of threads 1
+Length of LIS is 10, time 0.000155
+Length of LIS is 10, time 0.000156
+Length of LIS is 10, time 0.000153
+Length of LIS is 10, time 0.000154
+Length of LIS is 10, time 0.000155
+Number of threads 2
+Length of LIS is 10, time 0.000186
+Length of LIS is 10, time 0.000184
+Length of LIS is 10, time 0.000188
+Length of LIS is 10, time 0.000188
+Length of LIS is 10, time 0.000189
+Number of threads 4
+Length of LIS is 10, time 0.000209
+Length of LIS is 10, time 0.000207
+Length of LIS is 10, time 0.000209
+Length of LIS is 10, time 0.000211
+Length of LIS is 10, time 0.000208
+Number of threads 8
+Length of LIS is 10, time 0.000302
+Length of LIS is 10, time 0.000303
+Length of LIS is 10, time 0.000300
+Length of LIS is 10, time 0.000295
+Length of LIS is 10, time 0.000301
+Number of threads 16
+Length of LIS is 10, time 0.000407
+Length of LIS is 10, time 0.000403
+Length of LIS is 10, time 0.000409
+Length of LIS is 10, time 0.000409
+Length of LIS is 10, time 0.000410

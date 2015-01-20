@@ -1,0 +1,30 @@
+Number of threads 1
+Levenshtein distance 12, time 2.433276
+Levenshtein distance 12, time 2.433698
+Levenshtein distance 12, time 2.430671
+Levenshtein distance 12, time 2.433507
+Levenshtein distance 12, time 2.435185
+Number of threads 2
+Levenshtein distance 14, time 5.048191
+Levenshtein distance 14, time 5.044854
+Levenshtein distance 14, time 5.048004
+Levenshtein distance 14, time 5.047382
+Levenshtein distance 14, time 5.045597
+Number of threads 4
+Levenshtein distance 15, time 10.032541
+Levenshtein distance 15, time 10.031753
+Levenshtein distance 15, time 10.025027
+Levenshtein distance 15, time 10.026772
+Levenshtein distance 15, time 10.030280
+Number of threads 8
+Levenshtein distance 15, time 19.154241
+Levenshtein distance 15, time 19.150690
+Levenshtein distance 15, time 19.156145
+Levenshtein distance 15, time 19.151057
+Levenshtein distance 15, time 19.581623
+Number of threads 16
+Levenshtein distance 13, time 35.308922
+Levenshtein distance 13, time 35.300959
+Levenshtein distance 13, time 35.306433
+Levenshtein distance 13, time 35.305334
+Levenshtein distance 13, time 35.302652

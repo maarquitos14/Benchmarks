@@ -1,4 +1,4 @@
-all: knapsack knapsack_memo knapsack_omp knapsack_omp_memo knapsack_omp_inst knapsack_omp_memo_inst
+all: knapsack knapsack_memo knapsack_omp knapsack_omp_memo
 
 knapsack: knapsack.c
 	mcc knapsack.c -o knapsack

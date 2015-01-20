@@ -1,4 +1,4 @@
-all: bst bst_memo bst_omp bst_omp_memo bst_omp_inst bst_omp_memo_inst
+all: bst bst_memo bst_omp bst_omp_memo
 
 bst: bst.c
 	mcc bst.c -o bst

@@ -1,4 +1,4 @@
-all: mcm mcm_memo mcm_omp mcm_omp_memo mcm_omp_inst mcm_omp_memo_inst
+all: mcm mcm_memo mcm_omp mcm_omp_memo
 
 mcm: mcm.c
 	mcc mcm.c -o mcm
