@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <omp.h>
+#include <tr1/unordered_map>
+#include <string.h>
 
 int ori_n;
 int final = 0;
