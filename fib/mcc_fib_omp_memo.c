@@ -10,9 +10,6 @@ extern int sys_nerr;
 extern const char *const sys_errlist[];
 int ori_n;
 int final = 0;
-typedef void *nanos_wd_t;
-extern nanos_wd_t nanos_current_wd(void);
-extern void * nanos_memo_get_map( nanos_wd_t wd, void * id );
 void fib_mcc_serial(int n, int *res)
 {
   if (n < 2)
@@ -21,31 +18,10 @@ void fib_mcc_serial(int n, int *res)
     }
   else
     {
-      void * map = nanos_memo_get_map( nanos_current_wd(), &fib_mcc_serial );
-      std::tr1::unordered_map<unsigned int, void*> memo_map = (std::tr1::unordered_map<unsigned int, void*>) map;
-      std::tr1::unordered_map<unsigned int, void*> data_it;
-      //n-1
-      data_it = memo_map.find( n-1 );
-      if( data_it != memo_map.end() ){
-        char * data = (char *) data_it->second();
-        memcpy( res1, data, sizeof(*res1) );
-      }
-      else {
-        int * res1 = new int(0);
-        fib_mcc_serial(n-1, res1);
-        memo_map.insert( std::make_pair( n-1, res1 ) );
-      }
-      //n-2
-      data_it = memo_map.find( n-2 );
-      if( data_it != memo_map.end() ){
-        char * data = (char *) data_it->second();
-        memcpy( res2, data, sizeof(*res2) );
-      }
-      else {
-        int * res2 = new int(0);
-        fib_mcc_serial(n-2, res2);
-        memo_map.insert( std::make_pair( n-2, res2 ) );
-      }
+      int res1 = 0;
+      int res2 = 0;
+      fib_mcc_serial(n - 1, &res1);
+      fib_mcc_serial(n - 2, &res2);
       *res = res1 + res2;
     }
 }
@@ -64,6 +40,7 @@ enum mcc_enum_anon_5
 };
 typedef enum mcc_enum_anon_5 nanos_err_t;
 typedef unsigned int nanos_copy_id_t;
+typedef void *nanos_wd_t;
 extern nanos_err_t nanos_get_addr(nanos_copy_id_t copy_id, void **addr, nanos_wd_t cwd);
 extern void nanos_handle_error(nanos_err_t err);
 static void nanos_xlate_fun_fibompmemoc_0(struct nanos_args_0_t *const arg, void *wd)
@@ -156,8 +133,8 @@ typedef struct mcc_struct_anon_12 nanos_wd_dyn_flags_t;
 typedef void *nanos_thread_t;
 struct  mcc_struct_anon_13
 {
-  int num_elements;
-  void *identifier;
+  unsigned int num_dimensions;
+  unsigned int *dimensions;
 };
 typedef struct mcc_struct_anon_13 nanos_wd_memo_info_t;
 struct  mcc_struct_anon_14
@@ -175,6 +152,7 @@ struct mcc_struct_anon_0;
 typedef struct mcc_struct_anon_0 nanos_region_dimension_internal_t;
 typedef void *nanos_wg_t;
 extern nanos_err_t nanos_create_wd_compact(nanos_wd_t *wd, nanos_const_wd_definition_t *const_data, nanos_wd_dyn_props_t *dyn_props, size_t data_size, void **data, nanos_wg_t wg, nanos_copy_data_t **copies, nanos_region_dimension_internal_t **dimensions);
+extern nanos_wd_t nanos_current_wd(void);
 struct  mcc_struct_anon_0
 {
   size_t size;
@@ -262,6 +240,7 @@ void fib(int n, int *res)
             {
               {
                 nanos_wd_dyn_props_t nanos_wd_dyn_props;
+                int memo_dimensions[1];
                 struct nanos_args_0_t *ol_args;
                 nanos_err_t err;
                 struct nanos_args_0_t imm_args;
@@ -270,6 +249,9 @@ void fib(int n, int *res)
                 nanos_wd_dyn_props.tie_to = 0;
                 nanos_wd_dyn_props.priority = 0;
                 nanos_wd_dyn_props.flags.is_final = 1;
+                memo_dimensions[0] = mcc_arg_0 + 1;
+                nanos_wd_dyn_props.memo.num_dimensions = 1;
+                nanos_wd_dyn_props.memo.dimensions = memo_dimensions;
                 ol_args = (struct nanos_args_0_t *)0;
                 nanos_wd_t nanos_wd_ = (void *)0;
                 nanos_copy_data_t *ol_copy_data = (nanos_copy_data_t *)0;
@@ -351,6 +333,7 @@ void fib(int n, int *res)
             {
               {
                 nanos_wd_dyn_props_t nanos_wd_dyn_props;
+                int memo_dimensions[1];
                 struct nanos_args_1_t *ol_args;
                 nanos_err_t err;
                 struct nanos_args_1_t imm_args;
@@ -359,6 +342,9 @@ void fib(int n, int *res)
                 nanos_wd_dyn_props.tie_to = 0;
                 nanos_wd_dyn_props.priority = 0;
                 nanos_wd_dyn_props.flags.is_final = 1;
+                memo_dimensions[0] = mcc_arg_4 + 1;
+                nanos_wd_dyn_props.memo.num_dimensions = 1;
+                nanos_wd_dyn_props.memo.dimensions = memo_dimensions;
                 ol_args = (struct nanos_args_1_t *)0;
                 nanos_wd_t nanos_wd_ = (void *)0;
                 nanos_copy_data_t *ol_copy_data = (nanos_copy_data_t *)0;
@@ -491,6 +477,7 @@ int main(int argc, char **argv)
         {
           {
             nanos_wd_dyn_props_t nanos_wd_dyn_props;
+            int memo_dimensions[1];
             struct nanos_args_2_t *ol_args;
             nanos_err_t err;
             struct nanos_args_2_t imm_args;
@@ -499,6 +486,9 @@ int main(int argc, char **argv)
             nanos_wd_dyn_props.tie_to = 0;
             nanos_wd_dyn_props.priority = 0;
             nanos_wd_dyn_props.flags.is_final = 1;
+            memo_dimensions[0] = mcc_arg_8 + 1;
+            nanos_wd_dyn_props.memo.num_dimensions = 1;
+            nanos_wd_dyn_props.memo.dimensions = memo_dimensions;
             ol_args = (struct nanos_args_2_t *)0;
             nanos_wd_t nanos_wd_ = (void *)0;
             nanos_copy_data_t *ol_copy_data = (nanos_copy_data_t *)0;
@@ -574,11 +564,21 @@ int main(int argc, char **argv)
   double end = omp_get_wtime();
   printf("fib(%d): %d, time, %f\n", n, res, end - start);
 }
+extern unsigned int *nanos_memo_get_dimensions(nanos_wd_t wd);
+extern _Bool nanos_memo_task_memoized(nanos_wd_t wd, unsigned int index);
+extern void nanos_memo_store_task(nanos_wd_t wd, unsigned int index);
 static void smp_ol_fib_1_unpacked(int n, int *res)
 {
   {
     {
-      fib(n, res);
+      _Bool is_memoized;
+      int *memo_dimensions = nanos_memo_get_dimensions(nanos_current_wd());
+      is_memoized = nanos_memo_task_memoized(nanos_current_wd(), 0 + n);
+      if (!is_memoized)
+        {
+          fib(n, res);
+          nanos_memo_store_task(nanos_current_wd(), 0 + n);
+        }
     }
   }
 }
@@ -592,7 +592,14 @@ static void smp_ol_fib_3_unpacked(int n, int *res)
 {
   {
     {
-      fib(n, res);
+      _Bool is_memoized;
+      int *memo_dimensions = nanos_memo_get_dimensions(nanos_current_wd());
+      is_memoized = nanos_memo_task_memoized(nanos_current_wd(), 0 + n);
+      if (!is_memoized)
+        {
+          fib(n, res);
+          nanos_memo_store_task(nanos_current_wd(), 0 + n);
+        }
     }
   }
 }
@@ -606,7 +613,14 @@ static void smp_ol_fib_5_unpacked(int n, int *res)
 {
   {
     {
-      fib(n, res);
+      _Bool is_memoized;
+      int *memo_dimensions = nanos_memo_get_dimensions(nanos_current_wd());
+      is_memoized = nanos_memo_task_memoized(nanos_current_wd(), 0 + n);
+      if (!is_memoized)
+        {
+          fib(n, res);
+          nanos_memo_store_task(nanos_current_wd(), 0 + n);
+        }
     }
   }
 }

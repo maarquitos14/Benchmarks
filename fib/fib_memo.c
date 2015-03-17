@@ -27,6 +27,6 @@ int main(int argc, char *argv[]) {
     if (memo[n] == -1) memo[n] = fib(n);
     res = memo[n];        
 	double end = omp_get_wtime();
-	//printf("fib(%d): %d, time, %f\n",n, res, end - start);
-    printf("%f\n", end-start); 
+	printf("fib(%d): %d, time, %f\n",n, res, end - start);
+    //printf("%f\n", end-start); 
 }

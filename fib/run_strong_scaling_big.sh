@@ -11,7 +11,8 @@
 
 rm outputs_omp_memo
 
-for i in 1 2 4 8 16 
+#for i in 1 2 4 8 16 
+for i in 2
 do
     echo "Number of threads $i" >> outputs_omp_memo
     for j in {1..5}

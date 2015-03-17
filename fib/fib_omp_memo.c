@@ -5,7 +5,7 @@
 int ori_n;
 int final = 0;
 
-#pragma omp task memo(n+1,n) out(*res) final(1)//final(n < ori_n - final) label(fib1) copy_deps
+#pragma omp task memo(n+1,n) out(*res) final(1)
 void fib(int n, int *res) {
 	if(n<2) *res = n;
 	else
